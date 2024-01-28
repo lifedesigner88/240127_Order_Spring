@@ -31,11 +31,15 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+
+//    Relation
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Ordering> orderings = new ArrayList<>();
     public void addOrdering(Ordering ordering) {
         orderings.add(ordering);
     }
+
+
 
 
 //    Time

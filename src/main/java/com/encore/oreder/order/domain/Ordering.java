@@ -7,6 +7,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Ordering {
@@ -18,9 +20,18 @@ public class Ordering {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus = OrderStatus.ORDERED;
 
+
+
+//    Relation
     @ManyToOne
     @JoinColumn
     private Member member;
+
+    @OneToMany (mappedBy = "ordering", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems = new ArrayList<>();
+    public void addOrderItem (OrderItem item){
+        orderItems.add(item);
+    }
 
 
 //    Time
@@ -29,5 +40,4 @@ public class Ordering {
 
     @UpdateTimestamp
     private LocalDateTime updatedTime;
-
 }

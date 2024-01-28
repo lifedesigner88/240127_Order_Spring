@@ -22,8 +22,19 @@ public class Item {
     @Column(nullable = false)
     private int stockQuantity;
 
-    @Column(nullable = false)
+    @Column()
     private String imagePath;
+
+
+
+
+
+
+
+
+
+
+
 
 
     //    Time
