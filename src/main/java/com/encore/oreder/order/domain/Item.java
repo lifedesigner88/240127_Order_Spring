@@ -11,7 +11,7 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(nullable = false)
     private String name;
@@ -22,7 +22,7 @@ public class Item {
     @Column(nullable = false)
     private int stockQuantity;
 
-    @Column()
+    @Column
     private String imagePath;
 
 

@@ -14,7 +14,7 @@ import java.util.List;
 public class Ordering {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer Lo;
 
     @Setter
     @Enumerated(EnumType.STRING)
