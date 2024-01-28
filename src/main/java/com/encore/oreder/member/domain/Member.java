@@ -1,6 +1,8 @@
 package com.encore.oreder.member.domain;
 
 import com.encore.oreder.order.domain.Ordering;
+import lombok.Builder;
+import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 @Entity
 public class Member {
 
@@ -31,16 +34,25 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    public Member() {}
 
-//    Relation
+    @Builder
+    public Member(String name, String email, String password, String adress, Role role) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.adress = adress;
+        this.role = role;
+    }
+
+    //    Relation
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Ordering> orderings = new ArrayList<>();
+
+
     public void addOrdering(Ordering ordering) {
         orderings.add(ordering);
     }
-
-
-
 
 //    Time
     @CreationTimestamp
