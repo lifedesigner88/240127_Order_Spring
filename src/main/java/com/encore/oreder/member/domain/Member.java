@@ -48,8 +48,6 @@ public class Member {
     //    Relation
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Ordering> orderings = new ArrayList<>();
-
-
     public void addOrdering(Ordering ordering) {
         orderings.add(ordering);
     }

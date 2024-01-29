@@ -4,14 +4,17 @@ import com.encore.oreder.member.domain.Member;
 import lombok.Getter;
 
 @Getter
-public class MemberCreateResDto {
+public class MemberListResDto {
+
+    private final Integer id;
     private final String name;
     private final String email;
     private final String password;
     private final String adress;
     private final String role;
 
-    public MemberCreateResDto(Member member){
+    public MemberListResDto (Member member){
+        this.id = member.getId();
         this.name = member.getName();
         this.email = member.getEmail();
         this.password = member.getPassword();

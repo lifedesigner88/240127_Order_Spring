@@ -1,5 +1,6 @@
 package com.encore.oreder.order.domain;
 
+import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
 public class OrderItem {
 
     @Id
@@ -16,7 +18,6 @@ public class OrderItem {
     @Column(nullable = false)
     private int quantity = 0;
 
-
 //    Relateion
     @ManyToOne
     @JoinColumn
@@ -25,7 +26,6 @@ public class OrderItem {
     @ManyToOne
     @JoinColumn
     private Item item;
-
 
 
 //    Time

@@ -1,0 +1,41 @@
+
+###
+POST http://localhost:8080/member/new
+Content-Type: application/json
+
+{
+  "name": "nametest",
+  "email" : "ema2i1ltes2t",
+  "password" : "12345",
+  "adress" : "seoul",
+  "role" : "ADMI1"
+}
+
+###
+POST http://localhost:8080/member/new
+Content-Type: application/json
+
+{
+  "name": "Jong",
+  "email" : "jong@daum.com ",
+  "password" : "09875",
+  "adress" : "inchon"
+}
+
+###
+POST http://localhost:8080/member/new
+Content-Type: application/json
+
+{
+  "name": "Sejong",
+  "email" : "Life@naver.com ",
+  "password" : "12345",
+  "adress" : "seoul",
+  "role" : "ADMIN"
+}
+
+
+
+###
+GET http://localhost:8080/member/list
+
