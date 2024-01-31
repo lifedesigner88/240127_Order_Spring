@@ -1,0 +1,16 @@
+###
+GET http://localhost:8080/order/list
+
+
+
+###
+POST http://localhost:8080/order/new
+Content-Type: application/json
+
+{
+    "memberId": 7,
+    "orderItems": [
+        {"itemId": 1, "count": 2},
+        {"itemId": 2, "count": 1}
+    ]
+}

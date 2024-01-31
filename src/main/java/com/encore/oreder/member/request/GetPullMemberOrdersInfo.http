@@ -1,0 +1,16 @@
+# 7 번회원 주문들 상세정보
+###
+GET http://localhost:8080/member/7/orders
+
+
+
+# 8 번회원 주문들 상세정보
+###
+GET http://localhost:8080/member/8/orders
+
+
+
+# 9 번회원 주문들 상세정보
+###
+GET http://localhost:8080/member/9/orders
+

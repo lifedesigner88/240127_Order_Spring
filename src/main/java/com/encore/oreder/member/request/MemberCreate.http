@@ -34,8 +34,15 @@ Content-Type: application/json
   "role" : "ADMIN"
 }
 
-
-
 ###
-GET http://localhost:8080/member/list
+POST http://localhost:8080/member/new
+Content-Type: application/json
+
+{
+  "name": "Park",
+  "email" : "park@daum.com ",
+  "password" : "12345",
+  "adress" : "seoul",
+  "role" : "ADMIN"
+}
 

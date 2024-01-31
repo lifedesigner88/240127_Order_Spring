@@ -9,7 +9,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Getter
@@ -32,6 +34,20 @@ public class Ordering {
     public void addOrderItem (OrderItem item){
         orderItems.add(item);
     }
+
+
+//    Mathod
+
+    public Map<String, Integer> getItemNameAndQuantity () {
+        Map<String, Integer> itemNameAndQuantity = new HashMap<>();
+        for (OrderItem orderItem : orderItems)
+            itemNameAndQuantity.put(
+                    orderItem.getItem().getName(),
+                    orderItem.getQuantity());
+        return itemNameAndQuantity;
+    }
+
+
 
 //    Time
     @CreationTimestamp

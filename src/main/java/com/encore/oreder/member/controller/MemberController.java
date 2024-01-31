@@ -2,9 +2,9 @@ package com.encore.oreder.member.controller;
 
 import com.encore.oreder.member.dto.MemberCreateReqDto;
 import com.encore.oreder.member.dto.MemberCreateResDto;
-import com.encore.oreder.member.dto.MemberListResDto;
+import com.encore.oreder.member.dto.MemberResDto;
 import com.encore.oreder.member.service.MemberService;
-import com.encore.oreder.member.dto.MemberOrderListResDto;
+import com.encore.oreder.member.dto.MemberOrderResDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +27,12 @@ public class MemberController {
 
 //    Read
     @GetMapping("list")
-    public List<MemberListResDto> getMemberList(){
+    public List<MemberResDto> getMemberList(){
         return service.getMemberList();
     }
 
     @GetMapping("{id}/orders")
-    public List<MemberOrderListResDto> getMemberOrderList(@PathVariable Integer id){
+    public List<MemberOrderResDto> getMemberOrderList(@PathVariable Integer id){
         return service.getMemberOrderingList(id);
     }
 

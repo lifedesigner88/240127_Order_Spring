@@ -3,8 +3,8 @@ package com.encore.oreder.member.service;
 import com.encore.oreder.member.domain.Member;
 import com.encore.oreder.member.dto.MemberCreateReqDto;
 import com.encore.oreder.member.dto.MemberCreateResDto;
-import com.encore.oreder.member.dto.MemberListResDto;
-import com.encore.oreder.member.dto.MemberOrderListResDto;
+import com.encore.oreder.member.dto.MemberResDto;
+import com.encore.oreder.member.dto.MemberOrderResDto;
 import com.encore.oreder.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,18 +28,18 @@ public class MemberService {
                 ));
     }
 
-    public List<MemberListResDto> getMemberList(){
+    public List<MemberResDto> getMemberList(){
         return repository.findAll().stream()
-                .map(MemberListResDto::new)
+                .map(MemberResDto::new)
                 .collect(Collectors.toList());
     }
 
-    public List<MemberOrderListResDto> getMemberOrderingList(Integer id){
+    public List<MemberOrderResDto> getMemberOrderingList(Integer id){
         return repository.findById(id)
                 .map(Member::getOrderings)
                 .orElse(Collections.emptyList())
                 .stream()
-                .map(MemberOrderListResDto::new)
+                .map(MemberOrderResDto::new)
                 .collect(Collectors.toList());
     }
 
