@@ -1,6 +1,7 @@
 package com.encore.oreder.order.service;
 
 import com.encore.oreder.member.dto.MemberResDto;
+import com.encore.oreder.member.repository.MemberRepository;
 import com.encore.oreder.order.domain.OrderItem;
 import com.encore.oreder.order.domain.Ordering;
 import com.encore.oreder.order.dto.OrderItemsReqDto;
@@ -17,14 +18,15 @@ import java.util.stream.Collectors;
 @Service
 public class OrderService {
 
+    private final MemberRepository memberRepo;
     private final OrderingRepository orderRepo;
     private final OrderItemRepository orderItemReop;
     private final ItemRepository itemRepo;
 
     @Autowired
-    public OrderService(OrderingRepository orderRepo,
-                        OrderItemRepository orderItemReop,
-                        ItemRepository itemRepo) {
+    public OrderService(MemberRepository memberRepo, OrderingRepository orderRepo,
+                        OrderItemRepository orderItemReop,ItemRepository itemRepo) {
+        this.memberRepo = memberRepo;
         this.orderRepo = orderRepo;
         this.orderItemReop = orderItemReop;
         this.itemRepo = itemRepo;
@@ -38,7 +40,6 @@ public class OrderService {
 
 
     public OrderWithMemberResDto orderItems(OrderItemsReqDto dto) {
-
 
         for (OrderItemsReqDto.OrderItemDto itemDto : dto.getOrderItems()) {
             OrderItem item = new OrderItem();
